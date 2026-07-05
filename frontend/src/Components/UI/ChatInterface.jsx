@@ -1,3 +1,4 @@
+// src/components/ChatInterface.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
@@ -18,7 +19,6 @@ const ChatInterface = () => {
     }]);
   }, []);
 
-  // Auto-scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -40,10 +40,9 @@ const ChatInterface = () => {
       const response = await chatAPI.sendMessage(message);
       console.log('Backend response:', response.data); // Debug log
       
-      // FIX: Use data.response instead of data.ai_response
       const ai_response = {
         id: Date.now() + 1,
-        content: response.data.response, 
+        content: response.data.message, 
         isUser: false,
         timestamp: new Date()
       };
@@ -54,7 +53,7 @@ const ChatInterface = () => {
       console.log('Error:', err);
       const errorMessage = {
         id: Date.now() + 1,
-        content: ` Error: ${err.response?.data?.error || err.message || 'Failed to connect to backend'}`,
+        content: `Error: ${err.response?.data?.detail || err.message || 'Failed to connect to backend'}`,
         isUser: false,
         timestamp: new Date()
       };
@@ -70,7 +69,7 @@ const ChatInterface = () => {
       <div className="w-full max-w-2xl h-[600px] bg-white rounded-2xl shadow-xl flex flex-col">
         {/* Header */}
         <div className="bg-gradient-to-tr from-blue-800 to-blue-400 text-white p-6 rounded-t-2xl">
-          <h1 className="text-2xl font-bold">Assistance aux victimes de cyberviolencest</h1>
+          <h1 className="text-2xl font-bold">Assistance aux victimes de cyberviolences</h1>
           <p className="text-blue-100">Developed by Abdellah Elazzaoui</p>
         </div>
         

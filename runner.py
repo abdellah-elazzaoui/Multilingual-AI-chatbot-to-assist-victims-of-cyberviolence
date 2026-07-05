@@ -39,12 +39,9 @@ prompt = ChatPromptTemplate.from_template(template)
 
 chain = prompt | llm
 
-while True:
-    question = input(" Enter your question (in Arabic or French): ")
+def runner(question:str):
     if str(question).lower() in ['q','quit','0','exit']:
-        break
+        return "comment je peux vous assister ?"
     context = retriever.invoke(question)
     result = chain.invoke({"context":context , "question":question})
-    print(f"Assistant: ")
-    print(result.content)
-    print("----------------------")
+    return result.content

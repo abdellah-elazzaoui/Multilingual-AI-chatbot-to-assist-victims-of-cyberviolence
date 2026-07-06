@@ -2,7 +2,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from runner import runner
+from backend.app.runner import runner
 
 app = FastAPI(title="EMC Helpline Assistant")
 

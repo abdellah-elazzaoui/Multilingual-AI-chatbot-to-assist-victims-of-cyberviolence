@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Paperclip, Mic } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 const MessageInput = ({ onSendMessage }) => {
   const [inputMessage, setInputMessage] = useState('');
@@ -29,22 +29,7 @@ const MessageInput = ({ onSendMessage }) => {
             placeholder="Type your message here..."
             className="w-full pl-4 pr-12 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
-          <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex gap-1">
-            <button
-              type="button"
-              className="p-1.5 text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              <Paperclip size={18} />
-              
-            </button>
-
-            <button
-              type="button"
-              className="p-1.5 text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              <Mic size={18} />
-            </button>
-          </div>
+          
         </div>
         
         <button

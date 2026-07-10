@@ -3,11 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 import uvicorn
 import os
-
 from models  import ChatRequest, ChatResponse, HealthRequest
 from utils import logger, format_response
 from runner import runner
-
 # Create FastAPI app
 app = FastAPI(
     title="EMC Helpline Assistant",

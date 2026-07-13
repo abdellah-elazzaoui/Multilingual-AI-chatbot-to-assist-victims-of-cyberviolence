@@ -1,11 +1,11 @@
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
-from retrever import retriever
-
+from retriever import retriever
 
 model_name = "qwen2.5:3b"
+
 llm = ChatOllama(
-    model=model_name,
+    model = model_name,
     temperature = 0
 )
 
